@@ -29,7 +29,7 @@ public class SortingAlgorithms {
     /**
      * Given an List by reference, the method sort the data.
      *
-     * @param List of generic type <T>
+     * @param <T>
      * @param list
      */
     public static <T extends Comparable> void insertionSort(List<T> list) {
@@ -53,7 +53,7 @@ public class SortingAlgorithms {
     /**
      * Given an List by reference, the method sort the data.
      *
-     * @param List of generic type <T>
+     * @param <T>
      * @param list
      */
     public static <T extends Comparable> void bubbleSort(List<T> list) {
