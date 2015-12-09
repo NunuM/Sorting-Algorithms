@@ -3,10 +3,22 @@ Sorting Algorithms implemented in java with generic type
 
 ## Algorithms implemented
 
-1.Insertion Sort
+* Insertion Sort
 
-2.Merge-Sort (recursive)
+* Merge-Sort (recursive)
 
-3.Bubble Sort
+* Bubble Sort
 
-4.Quick Sort
+* Quick Sort (recursive)
+
+## Complexity
+
+* Merge-Sort (n log(n))
+
+* Quick Sort (n log(n))
+
+* Bubble Sort ( O(n²))
+
+* Insertion Sort (O(n²))
+
+-
