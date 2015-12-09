@@ -26,6 +26,12 @@ import java.util.List;
  */
 public class SortingAlgorithms {
 
+    /**
+     * Given an List by reference, the method sort the data.
+     *
+     * @param List of generic type <T>
+     * @param list
+     */
     public static <T extends Comparable> void insertionSort(List<T> list) {
         if (list.isEmpty()) {
             return;
@@ -35,7 +41,7 @@ public class SortingAlgorithms {
             int j = i;
             T aux = list.get(i);
 
-            while (j > 0 && aux.compareTo(list.get(j - 1)) > 0) {
+            while (j > 0 && aux.compareTo(list.get(j - 1)) < 0) {
                 list.set(j, list.get(j - 1));
                 j--;
             }
@@ -44,6 +50,12 @@ public class SortingAlgorithms {
 
     }
 
+    /**
+     * Given an List by reference, the method sort the data.
+     *
+     * @param List of generic type <T>
+     * @param list
+     */
     public static <T extends Comparable> void bubbleSort(List<T> list) {
         if (list.isEmpty()) {
             return;
@@ -54,7 +66,7 @@ public class SortingAlgorithms {
         for (int i = 1; i < size; i++) {
             for (int j = (size - 1); j >= i; j--) {
 
-                if (list.get(j - 1).compareTo(list.get(j)) < 0) {
+                if (list.get(j - 1).compareTo(list.get(j)) > 0) {
                     T aux = list.get(j);
                     list.set(j, list.get(j - 1));
                     list.set(j - 1, aux);
@@ -65,10 +77,53 @@ public class SortingAlgorithms {
 
     }
 
-    public static <T extends Comparable> void quickSort(List<T> list) {
+    /**
+     * Given an List by reference, the method sort the data.
+     *
+     * @param <T>
+     * @param list
+     * @param begin of array.
+     * @param end of array
+     */
+    public static <T extends Comparable> void quickSort(List<T> list, int begin, int end) {
+        T pivot = list.get((begin + end) / 2);
+
+        int i = begin;
+        int j = end;
+
+        while (i < j) {
+            while (list.get(i).compareTo(pivot) < 0) {
+                i++;
+            }
+            while (list.get(j).compareTo(pivot) > 0) {
+                j--;
+            }
+
+            if (i <= j) {
+                T aux = list.get(i);
+                list.set(i, list.get(j));
+                list.set(j, aux);
+                i++;
+                j--;
+            }
+        }
+
+        if (j > begin) {
+            quickSort(list, begin, j);
+        }
+
+        if (i < end) {
+            quickSort(list, i, end);
+        }
 
     }
 
+    /**
+     * Given an List by reference, the method sort the data.
+     *
+     * @param <T>
+     * @param list
+     */
     public static <T extends Comparable> void mergeSort(List<T> list) {
         int size = list.size();
 
@@ -97,6 +152,14 @@ public class SortingAlgorithms {
 
     }
 
+    /**
+     * Private method to merge the sort data.
+     *
+     * @param <T>
+     * @param list
+     * @param leftList
+     * @param rigthList
+     */
     private static <T extends Comparable> void merge(List<T> list, List<T> leftList, List<T> rigthList) {
         list.clear();
 
@@ -127,24 +190,23 @@ public class SortingAlgorithms {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ArrayList<String> arrayList = new ArrayList<String>();
+        ArrayList<String> arrayList = new ArrayList<>();
 
         arrayList.add("Zla");
         arrayList.add("Ala");
-        arrayList.add("Dla");
-        arrayList.add("Zla");
-        arrayList.add("Rla");
-        arrayList.add("Dla");
-        arrayList.add("Zla");
-        arrayList.add("Yla");
-        arrayList.add("Dla");
+        arrayList.add("Gla");
+        arrayList.add("Jla");
+        arrayList.add("Bla");
+        arrayList.add("Jla");
+        arrayList.add("Bla");
 
         System.out.println(arrayList);
 
+        //SortingAlgorithms.bubbleSort(arrayList);
         //SortingAlgorithms.insertionSort(arrayList);
-        SortingAlgorithms.mergeSort(arrayList);
+        //SortingAlgorithms.mergeSort(arrayList);
+        //SortingAlgorithms.quickSort(arrayList, 0, 6);
         System.out.println(arrayList);
-
     }
 
 }
