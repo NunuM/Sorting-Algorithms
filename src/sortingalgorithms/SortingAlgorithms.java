@@ -78,6 +78,18 @@ public class SortingAlgorithms {
     }
 
     /**
+     * Given an List by reference, the method call the private one to sort the data.
+     *
+     * @param <T>
+     * @param list 
+     */
+    public static <T extends Comparable> void quickSort(List<T> list) {
+        int begin =0;
+        int end = list.size()-1;
+        quickSort(list, begin, end);
+    }
+    
+    /**
      * Given an List by reference, the method sort the data.
      *
      * @param <T>
@@ -85,7 +97,7 @@ public class SortingAlgorithms {
      * @param begin of array.
      * @param end of array
      */
-    public static <T extends Comparable> void quickSort(List<T> list, int begin, int end) {
+    private static <T extends Comparable> void quickSort(List<T> list, int begin, int end) {
         T pivot = list.get((begin + end) / 2);
 
         int i = begin;
@@ -199,13 +211,14 @@ public class SortingAlgorithms {
         arrayList.add("Bla");
         arrayList.add("Jla");
         arrayList.add("Bla");
+        arrayList.add("Lla");
 
         System.out.println(arrayList);
 
         //SortingAlgorithms.bubbleSort(arrayList);
         //SortingAlgorithms.insertionSort(arrayList);
         //SortingAlgorithms.mergeSort(arrayList);
-        //SortingAlgorithms.quickSort(arrayList, 0, 6);
+        //SortingAlgorithms.quickSort(arrayList);
         System.out.println(arrayList);
     }
 
